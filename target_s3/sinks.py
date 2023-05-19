@@ -74,6 +74,7 @@ class s3Sink(BatchSink):
                 raise ValueError("No schema set for writing.")
 
             self._pq_writer = pq.ParquetWriter(
+                version="1.0",
                 where=self.get_s3_path(),
                 filesystem=s3,
                 schema=self.pa_schema,
